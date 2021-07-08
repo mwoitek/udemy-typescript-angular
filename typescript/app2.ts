@@ -1,5 +1,5 @@
 class Carro {
-    private modelo: string;
+    public modelo: string;
     private numeroDePortas: number;
     private velocidade: number = 0;
 
@@ -42,7 +42,7 @@ class Concessionaria {
 class Pessoa {
     private nome: string;
     private carroPreferido: string;
-    private carro: any;
+    private carro: Carro;
 
     constructor(nome: string, carroPreferido: string) {
         this.nome = nome;
@@ -57,11 +57,11 @@ class Pessoa {
         return this.carroPreferido;
     }
 
-    public comprarCarro(carro: any): void {
+    public comprarCarro(carro: Carro): void {
         this.carro = carro;
     }
 
-    public dizerCarroQueTem(): any {
+    public dizerCarroQueTem(): Carro {
         return this.carro;
     }
 }
@@ -77,4 +77,15 @@ let listaDeCarros: Array<Carro> = [carroA, carroB, carroC];
 let concessionaria = new Concessionaria("Av. Paulista, 123", listaDeCarros);
 
 // Exibir a lista de carros
-console.log(concessionaria.mostrarListaDeCarros());
+// console.log(concessionaria.mostrarListaDeCarros());
+
+// Comprar o carro
+let cliente = new Pessoa("João", "Veloster");
+
+concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
+    if (carro.modelo === cliente.dizerCarroPreferido()) {
+        cliente.comprarCarro(carro);
+    }
+});
+
+console.log(cliente.dizerCarroQueTem());
