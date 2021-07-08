@@ -19,7 +19,7 @@ let concessionaria = new Concessionaria("Av. Paulista, 123", listaDeCarros);
 let cliente = new Pessoa("João", "Veloster");
 
 concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
-    if (carro.modelo === cliente.dizerCarroPreferido()) {
+    if (carro["modelo"] === cliente.dizerCarroPreferido()) {
         cliente.comprarCarro(carro);
     }
 });

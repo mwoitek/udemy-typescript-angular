@@ -18,7 +18,7 @@ var concessionaria = new Concessionaria_1.default("Av. Paulista, 123", listaDeCa
 // Comprar o carro
 var cliente = new Pessoa_1.default("João", "Veloster");
 concessionaria.mostrarListaDeCarros().map(function (carro) {
-    if (carro.modelo === cliente.dizerCarroPreferido()) {
+    if (carro["modelo"] === cliente.dizerCarroPreferido()) {
         cliente.comprarCarro(carro);
     }
 });
