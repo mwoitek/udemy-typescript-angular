@@ -17,8 +17,9 @@ var Carro = /** @class */ (function () {
     return Carro;
 }());
 var Concessionaria = /** @class */ (function () {
-    function Concessionaria(endereco) {
+    function Concessionaria(endereco, listaDeCarros) {
         this.endereco = endereco;
+        this.listaDeCarros = listaDeCarros;
     }
     Concessionaria.prototype.fornecerEndereco = function () {
         return this.endereco;
@@ -47,3 +48,12 @@ var Pessoa = /** @class */ (function () {
     };
     return Pessoa;
 }());
+// Criar carros
+var carroA = new Carro("Dodge Journey", 4);
+var carroB = new Carro("Veloster", 3);
+var carroC = new Carro("Cerato", 4);
+// Montar a lista de carros da concessionária
+var listaDeCarros = [carroA, carroB, carroC];
+var concessionaria = new Concessionaria("Av. Paulista, 123", listaDeCarros);
+// Exibir a lista de carros
+console.log(concessionaria.mostrarListaDeCarros());
